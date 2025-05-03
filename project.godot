@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot Bricker Breaker"
+config/name="Godot Block Breaker"
 run/main_scene="uid://cxlllfdtgoqvc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/icon=""
