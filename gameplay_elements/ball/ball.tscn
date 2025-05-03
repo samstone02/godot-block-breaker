@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://co5ydwk3s0xj"]
 
-[ext_resource type="Script" uid="uid://w3tw6jmc5e1l" path="res://ball/ball.gd" id="1_pwunn"]
-[ext_resource type="Texture2D" uid="uid://cvfkyik2qbes" path="res://ball/ball.png" id="2_biv8x"]
+[ext_resource type="Script" uid="uid://w3tw6jmc5e1l" path="res://gameplay_elements/ball/ball.gd" id="1_pwunn"]
+[ext_resource type="Texture2D" uid="uid://cvfkyik2qbes" path="res://gameplay_elements/ball/ball.png" id="2_biv8x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 128.004

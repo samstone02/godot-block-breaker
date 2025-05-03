@@ -2,6 +2,7 @@ class_name Ball extends CharacterBody2D
 
 @export var initial_velocity: float = 2500
 
+signal brick_collide
 var launched: bool = false
 
 func _physics_process(delta: float) -> void:
@@ -29,6 +30,8 @@ func _physics_process(delta: float) -> void:
 				
 			cell_atlas_coords = BrickAtlasCoords.decrement(cell_atlas_coords)			
 			obj.set_cell(cell_coords, 0, cell_atlas_coords, 0)
+			
+			brick_collide.emit(collision)
 			
 func launch(vel: Vector2):
 	launched = true

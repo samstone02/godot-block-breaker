@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://exoii7r0tl0h"]
+
+[ext_resource type="PackedScene" uid="uid://k4qcinq7sa1w" path="res://gameplay_elements/common_elements.tscn" id="1_fy2mh"]
+[ext_resource type="PackedScene" uid="uid://calq1vq0vf2u7" path="res://gameplay_elements/brick/bricks_tile_set_layer.tscn" id="2_fy2mh"]
+
+[node name="Ace" type="Node2D"]
+
+[node name="CommonElements" parent="." instance=ExtResource("1_fy2mh")]
+
+[node name="BricksTileSetLayer" parent="." instance=ExtResource("2_fy2mh")]

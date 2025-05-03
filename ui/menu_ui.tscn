@@ -1,0 +1,206 @@
+[gd_scene load_steps=3 format=3 uid="uid://77gtirt7c7av"]
+
+[ext_resource type="Script" uid="uid://b70fyrxr1lj8s" path="res://level_loader.gd" id="1_55kfv"]
+[ext_resource type="Script" uid="uid://rdoixx75ocfk" path="res://ui/uno.gd" id="1_aqtrf"]
+
+[node name="MenuUi" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Block Breaker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="LevelSelect" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelect/Panel"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Ace"
+
+[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Two of a Kind"
+
+[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Triple Decker"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LevelSelect/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Four Corners"
+
+[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Pot of Gold"
+
+[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "The Forest"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="LevelSelect/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Hashtag"
+
+[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "The Ladder"
+
+[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Labyrinth"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="LevelSelect/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Nesting Doll
+"
+
+[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Double Barrel"
+
+[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "The X"
+
+[node name="DevLevel" type="Button" parent="LevelSelect"]
+custom_minimum_size = Vector2(125, 0)
+offset_left = 290.0
+offset_top = -40.0
+offset_right = 454.0
+offset_bottom = 39.0
+text = "Dev Level
+"
+script = ExtResource("1_aqtrf")
+
+[node name="LevelLoader" type="Node" parent="."]
+script = ExtResource("1_55kfv")
+
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button" to="LevelLoader" method="_load_level" binds= [&"ace"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="LevelLoader" method="_load_level" binds= [&"two_of_a_kind"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button3" to="LevelLoader" method="_load_level" binds= [&"triple_decker"]]
+[connection signal="pressed" from="LevelSelect/DevLevel" to="LevelLoader" method="_load_level" binds= [&"dev_level"]]

@@ -11,16 +11,18 @@ config_version=5
 [application]
 
 config/name="Godot Bricker Breaker"
-config/description="A shitty clone of pong. It doesn't fucking work because"
-config/version="fuck you"
-run/main_scene="uid://b7ooagfkk0kyw"
+run/main_scene="uid://cxlllfdtgoqvc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/icon=""
 boot_splash/version="fuck you"
 
 [autoload]
 
-BrickAtlasCoords="*res://brick/brick_atlas_coords.gd"
+BrickAtlasCoords="*res://gameplay_elements/brick/brick_atlas_coords.gd"
+
+[display]
+
+window/stretch/aspect="ignore"
 
 [input]
 

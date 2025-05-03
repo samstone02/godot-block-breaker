@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv768i14ekbqs"
-path="res://.godot/imported/brick_tileset.png-45548ce03b67a8c0e8c38ffb13db2265.ctex"
+uid="uid://d2lnqiobooxn6"
+path="res://.godot/imported/launch_arrow.png-cb68f811d14ee823de638d45d6ac8fc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brick/brick_tileset.png"
-dest_files=["res://.godot/imported/brick_tileset.png-45548ce03b67a8c0e8c38ffb13db2265.ctex"]
+source_file="res://gameplay_elements/paddle/launch_arrow.png"
+dest_files=["res://.godot/imported/launch_arrow.png-cb68f811d14ee823de638d45d6ac8fc7.ctex"]
 
 [params]
 

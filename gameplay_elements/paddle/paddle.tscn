@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://wcwoeuyobmcx"]
 
-[ext_resource type="Script" uid="uid://0i3yrltvt3b1" path="res://paddle/paddle.gd" id="1_h1ap1"]
-[ext_resource type="Texture2D" uid="uid://cyd2bcwojv06u" path="res://paddle/paddle.png" id="2_b2k5h"]
-[ext_resource type="Texture2D" uid="uid://d2lnqiobooxn6" path="res://paddle/launch_arrow.png" id="3_1k4sr"]
+[ext_resource type="Script" uid="uid://0i3yrltvt3b1" path="res://gameplay_elements/paddle/paddle.gd" id="1_h1ap1"]
+[ext_resource type="Texture2D" uid="uid://cyd2bcwojv06u" path="res://gameplay_elements/paddle/paddle.png" id="2_b2k5h"]
+[ext_resource type="Texture2D" uid="uid://d2lnqiobooxn6" path="res://gameplay_elements/paddle/launch_arrow.png" id="3_1k4sr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(1026, 256)

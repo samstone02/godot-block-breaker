@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://k4qcinq7sa1w"]
+
+[ext_resource type="Script" uid="uid://dmt5454jnocny" path="res://level_camera.gd" id="1_ep22m"]
+[ext_resource type="PackedScene" uid="uid://wcwoeuyobmcx" path="res://gameplay_elements/paddle/paddle.tscn" id="3_jd1fy"]
+[ext_resource type="PackedScene" uid="uid://co5ydwk3s0xj" path="res://gameplay_elements/ball/ball.tscn" id="4_cnvg6"]
+[ext_resource type="Script" uid="uid://0wcvl4iage1" path="res://gameplay_elements/level_controller.gd" id="5_k600o"]
+[ext_resource type="Script" uid="uid://csqmrae23xkix" path="res://gameplay_elements/killzone/killzone.gd" id="5_p3adb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(10847, 630)
+
+[node name="CommonElements" type="Node2D"]
+
+[node name="LevelController" type="Node" parent="."]
+script = ExtResource("5_k600o")
+
+[node name="LevelCompleteUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="LevelCompleteUi"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelCompleteUi/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1168.5
+offset_top = -349.0
+offset_right = 1168.5
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteUi/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="LevelCompleteUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 512
+text = "You Won!"
+
+[node name="Button" type="Button" parent="LevelCompleteUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 256
+text = "Next Level"
+
+[node name="LevelCamera" type="Camera2D" parent="."]
+position = Vector2(8, 0)
+zoom = Vector2(0.1, 0.1)
+script = ExtResource("1_ep22m")
+
+[node name="Paddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("3_jd1fy")]
+position = Vector2(0, 2300)
+ball = NodePath("../Ball")
+paddle_speed = 3000.0
+ball_launch_speed = 3500.0
+
+[node name="Ball" parent="." instance=ExtResource("4_cnvg6")]
+position = Vector2(0, -718)
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(-5374, 2648)
+script = ExtResource("5_p3adb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(5400.5, -39)
+shape = SubResource("RectangleShape2D_272bh")
+
+[connection signal="pressed" from="LevelCompleteUi/Panel/MarginContainer/VBoxContainer/Button" to="LevelController" method="_return_to_level_select"]
