@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://wcwoeuyobmcx"]
+
+[ext_resource type="Script" uid="uid://0i3yrltvt3b1" path="res://paddle/paddle.gd" id="1_h1ap1"]
+[ext_resource type="Texture2D" uid="uid://cyd2bcwojv06u" path="res://paddle/paddle.png" id="2_b2k5h"]
+[ext_resource type="Texture2D" uid="uid://d2lnqiobooxn6" path="res://paddle/launch_arrow.png" id="3_1k4sr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1026, 256)
+
+[node name="Paddle" type="StaticBody2D"]
+script = ExtResource("1_h1ap1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b2k5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="BounceCenter" type="Node2D" parent="."]
+editor_description = "A point used in bounce calculation when the ball hits the paddle."
+position = Vector2(0, 128)
+
+[node name="LaunchPoint" type="Node2D" parent="."]
+position = Vector2(2, -327)
+
+[node name="LaunchArrow" type="Sprite2D" parent="LaunchPoint"]
+position = Vector2(-2, -729)
+texture = ExtResource("3_1k4sr")

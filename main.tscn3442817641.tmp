@@ -1,0 +1,122 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7ooagfkk0kyw"]
+
+[ext_resource type="Script" uid="uid://0i3yrltvt3b1" path="res://paddle.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cyd2bcwojv06u" path="res://paddle.png" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://w3tw6jmc5e1l" path="res://ball.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cvfkyik2qbes" path="res://ball.png" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://csqmrae23xkix" path="res://killzone.gd" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1026, 256)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
+radius = 128.004
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(374.5, 6486)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(11507, 330)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(10847, 491)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
+
+[node name="Paddle" type="AnimatableBody2D" parent="."]
+position = Vector2(-4, 2438)
+script = ExtResource("1_0xm2m")
+speed = 5000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+texture = ExtResource("2_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_1bvp3")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("3_1bvp3")
+initial_impulse = 3000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("4_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-5579, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Walls/LeftWall"]
+offset_left = -179.0
+offset_top = -3239.0
+offset_right = 182.0
+offset_bottom = 3245.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+shape = SubResource("RectangleShape2D_lquwl")
+one_way_collision_margin = 0.0
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(5577, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Walls/RightWall"]
+offset_left = -179.0
+offset_top = -3239.0
+offset_right = 182.0
+offset_bottom = 3245.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+shape = SubResource("RectangleShape2D_lquwl")
+one_way_collision_margin = 0.0
+
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-15, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Walls/TopWall"]
+offset_left = -5380.0
+offset_top = -3239.0
+offset_right = 5417.0
+offset_bottom = -2915.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(13.5, -3078)
+shape = SubResource("RectangleShape2D_7mycd")
+one_way_collision_margin = 0.0
+
+[node name="BottomWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-1, 6158)
+
+[node name="ColorRect" type="ColorRect" parent="Walls/BottomWall"]
+offset_left = -5394.0
+offset_top = -3239.0
+offset_right = 5403.0
+offset_bottom = -2915.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+position = Vector2(6.5, -3078)
+shape = SubResource("RectangleShape2D_7mycd")
+one_way_collision_margin = 0.0
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(-5374, 2648)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(5400.5, 30.5)
+shape = SubResource("RectangleShape2D_272bh")
