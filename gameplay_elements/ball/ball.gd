@@ -2,7 +2,9 @@ class_name Ball extends CharacterBody2D
 
 @export var initial_velocity: float = 2500
 
-signal brick_collide
+signal brick_collide(TileMapLayer, Vector2i)
+signal paddle_collide
+
 var launched: bool = false
 
 func _physics_process(delta: float) -> void:
@@ -15,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		if obj.name == "Paddle":
 			var bounce_center = obj.get_node("BounceCenter").global_position
 			velocity = (collision.get_position() - bounce_center).normalized() * velocity.length()
+			paddle_collide.emit()
 		else:
 			velocity = velocity.bounce(collision.get_normal())
 			
@@ -31,7 +34,7 @@ func _physics_process(delta: float) -> void:
 			cell_atlas_coords = BrickAtlasCoords.decrement(cell_atlas_coords)			
 			obj.set_cell(cell_coords, 0, cell_atlas_coords, 0)
 			
-			brick_collide.emit(collision)
+			brick_collide.emit(obj, collision.get_position())
 			
 func launch(vel: Vector2):
 	launched = true

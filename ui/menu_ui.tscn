@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://77gtirt7c7av"]
+[gd_scene load_steps=6 format=3 uid="uid://77gtirt7c7av"]
 
+[ext_resource type="Script" uid="uid://uftl5yriw3pr" path="res://ui/play.gd" id="1_2bk46"]
 [ext_resource type="Script" uid="uid://b70fyrxr1lj8s" path="res://level_loader.gd" id="1_55kfv"]
 [ext_resource type="Script" uid="uid://rdoixx75ocfk" path="res://ui/uno.gd" id="1_aqtrf"]
+[ext_resource type="Script" uid="uid://co0r8u3c5bwbu" path="res://ui/level_select.gd" id="2_1g3ck"]
+[ext_resource type="Script" uid="uid://cit8h6uk5pfps" path="res://ui/exit_level_select.gd" id="4_2ptix"]
 
 [node name="MenuUi" type="Control"]
 layout_mode = 3
@@ -51,6 +54,7 @@ vertical_alignment = 1
 [node name="Play" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "Play"
+script = ExtResource("1_2bk46")
 
 [node name="Quit" type="Button" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
@@ -63,6 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_1g3ck")
 
 [node name="Panel" type="Panel" parent="LevelSelect"]
 layout_mode = 1
@@ -81,15 +86,9 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="LevelSelect/Panel"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
@@ -108,17 +107,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Ace" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Ace"
 
-[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TwoOfAKind" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Two of a Kind"
 
-[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TripleDecker" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Triple Decker"
@@ -129,17 +128,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="FourCorners" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Four Corners"
 
-[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="TheThrone" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-text = "Pot of Gold"
+text = "The Throne"
 
-[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="TheForest" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "The Forest"
@@ -150,20 +149,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Hashtag" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Hashtag"
 
-[node name="Button2" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="TheLadder" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "The Ladder"
 
-[node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="TheFilter" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-text = "Labyrinth"
+text = "The Filter
+"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="LevelSelect/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
@@ -185,22 +185,51 @@ text = "Double Barrel"
 [node name="Button3" type="Button" parent="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-text = "The X"
+text = "The Filter
+Returns"
 
 [node name="DevLevel" type="Button" parent="LevelSelect"]
 custom_minimum_size = Vector2(125, 0)
-offset_left = 290.0
-offset_top = -40.0
-offset_right = 454.0
-offset_bottom = 39.0
+layout_mode = 0
+offset_left = 289.0
+offset_top = -60.0
+offset_right = 453.0
+offset_bottom = 19.0
 text = "Dev Level
 "
 script = ExtResource("1_aqtrf")
 
+[node name="Exit" type="Button" parent="LevelSelect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 289.0
+offset_top = -251.0
+offset_right = 348.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.901882, 0.277837, 0.345993, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "X"
+script = ExtResource("4_2ptix")
+
 [node name="LevelLoader" type="Node" parent="."]
 script = ExtResource("1_55kfv")
 
-[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button" to="LevelLoader" method="_load_level" binds= [&"ace"]]
-[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button2" to="LevelLoader" method="_load_level" binds= [&"two_of_a_kind"]]
-[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Button3" to="LevelLoader" method="_load_level" binds= [&"triple_decker"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/Ace" to="LevelLoader" method="_load_level" binds= [&"ace"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/TwoOfAKind" to="LevelLoader" method="_load_level" binds= [&"two_of_a_kind"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer/TripleDecker" to="LevelLoader" method="_load_level" binds= [&"triple_decker"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2/FourCorners" to="LevelLoader" method="_load_level" binds= ["four_corners"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2/TheThrone" to="LevelLoader" method="_load_level" binds= ["the_throne"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer2/TheForest" to="LevelLoader" method="_load_level" binds= ["the_forest"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3/Hashtag" to="LevelLoader" method="_load_level" binds= ["hashtag"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3/TheLadder" to="LevelLoader" method="_load_level" binds= ["the_ladder"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer3/TheFilter" to="LevelLoader" method="_load_level" binds= ["the_filter"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4/Button" to="LevelLoader" method="_load_level" binds= ["nesting_doll"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4/Button2" to="LevelLoader" method="_load_level" binds= ["double_barrel"]]
+[connection signal="pressed" from="LevelSelect/Panel/MarginContainer/VBoxContainer/HBoxContainer4/Button3" to="LevelLoader" method="_load_level" binds= ["the_filter_returns"]]
 [connection signal="pressed" from="LevelSelect/DevLevel" to="LevelLoader" method="_load_level" binds= [&"dev_level"]]

@@ -36,27 +36,13 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="OverlayUi/MarginContainer"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="ScoreLabel" type="RichTextLabel" parent="OverlayUi/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(800, 400)
+[node name="ScoreCounter" type="RichTextLabel" parent="OverlayUi/MarginContainer"]
+custom_minimum_size = Vector2(800, 312)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 256
-text = "Score:"
-
-[node name="ScoreCounter" type="RichTextLabel" parent="OverlayUi/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(800, 400)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 256
-text = "0"
+text = "Score: "
 
 [node name="LevelCompleteUi" type="Control" parent="."]
 layout_mode = 3
