@@ -29,6 +29,7 @@ func _on_ball_paddle_collide():
 
 func _on_ball_destroyed():
 	$"../LevelFailedUi".visible = true
+	$"../OverlayUi".visible = false
 	
 func _on_try_again_pressed() -> void:
 	get_tree().root.get_node("MenuUi/LevelLoader").reload_level()
