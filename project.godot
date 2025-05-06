@@ -19,6 +19,8 @@ boot_splash/version="fuck you"
 [autoload]
 
 BrickAtlasCoords="*res://gameplay_elements/brick/brick_atlas_coords.gd"
+SaveController="*res://save_controller.gd"
+LevelLoader="*res://level_loader.gd"
 
 [display]
 

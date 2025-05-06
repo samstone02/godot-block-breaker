@@ -32,7 +32,7 @@ func _on_ball_destroyed():
 	$"../OverlayUi".visible = false
 	
 func _on_try_again_pressed() -> void:
-	get_tree().root.get_node("MenuUi/LevelLoader").reload_level()
+	LevelLoader.reload_level()
 
 func update_score_and_bricks_counters() -> void:
 	running_score += score_per_collision
@@ -58,7 +58,10 @@ func check_level_complete(layer: TileMapLayer) -> bool:
 func level_complete() -> void:
 	$"../LevelCompleteUi".visible = true
 	$"../KillZone/CollisionShape2D".disabled = true
+	SaveController.save_score_if_new_best(LevelLoader.loaded_level_name, total_score)
 	
 func _return_to_level_select() -> void:
 	get_parent().queue_free()
-	get_tree().root.get_node("MenuUi").visible = true
+	var menu_ui: Node = load("res://ui/menu_ui.tscn").instantiate()
+	get_tree().root.add_child(menu_ui)
+	menu_ui.get_node("LevelSelect").visible = true
