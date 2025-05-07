@@ -106,10 +106,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 512
 text = "You Won!"
 
-[node name="NextLevel" type="Button" parent="LevelCompleteUi/Panel/MarginContainer/VBoxContainer"]
+[node name="ExitLevelButton" type="Button" parent="LevelCompleteUi/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 256
-text = "Next Level"
+text = "Exit Level"
 
 [node name="LevelFailedUi" type="Control" parent="."]
 layout_mode = 3
@@ -200,6 +200,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 256
 text = "Try Again"
 
+[node name="ExitLevelButton" type="Button" parent="LevelFailedUi/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 256
+text = "Exit Level"
+
 [node name="LevelCamera" type="Camera2D" parent="."]
 zoom = Vector2(0.1, 0.1)
 script = ExtResource("1_ep22m")
@@ -221,4 +226,5 @@ script = ExtResource("5_p3adb")
 position = Vector2(5400.5, -39)
 shape = SubResource("RectangleShape2D_272bh")
 
-[connection signal="pressed" from="LevelCompleteUi/Panel/MarginContainer/VBoxContainer/NextLevel" to="LevelController" method="_return_to_level_select"]
+[connection signal="pressed" from="LevelCompleteUi/Panel/MarginContainer/VBoxContainer/ExitLevelButton" to="LevelController" method="_return_to_level_select"]
+[connection signal="pressed" from="LevelFailedUi/Panel/MarginContainer/VBoxContainer/ExitLevelButton" to="LevelController" method="_return_to_level_select"]

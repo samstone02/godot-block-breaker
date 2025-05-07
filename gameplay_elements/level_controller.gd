@@ -61,7 +61,7 @@ func level_complete() -> void:
 	SaveController.save_score_if_new_best(LevelLoader.loaded_level_name, total_score)
 	
 func _return_to_level_select() -> void:
-	get_parent().queue_free()
+	LevelLoader.unload_level()
 	var menu_ui: Node = load("res://ui/menu_ui.tscn").instantiate()
 	get_tree().root.add_child(menu_ui)
 	menu_ui.get_node("LevelSelect").visible = true

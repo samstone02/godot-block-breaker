@@ -22,3 +22,10 @@ func reload_level() -> void:
 	# name rather than the name of the level.
 	# reassign the name so that we can correctly find it on the next call to reload_level
 	loaded_node_name = level.name
+	
+func unload_level() -> void:
+	get_tree().root.get_node(loaded_node_name).queue_free()
+	
+	loaded_level_name = ""
+	loaded_node_name = ""
+	loaded_level_path = ""
