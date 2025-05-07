@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://co5ydwk3s0xj"]
+[gd_scene load_steps=7 format=3 uid="uid://co5ydwk3s0xj"]
 
 [ext_resource type="Script" uid="uid://w3tw6jmc5e1l" path="res://gameplay_elements/ball/ball.gd" id="1_pwunn"]
 [ext_resource type="Texture2D" uid="uid://cvfkyik2qbes" path="res://gameplay_elements/ball/ball.png" id="2_biv8x"]
+[ext_resource type="AudioStream" uid="uid://4v51qjw8538y" path="res://gameplay_elements/ball/brick_break.wav" id="3_p8bub"]
+[ext_resource type="AudioStream" uid="uid://cbty233tbuq4h" path="res://gameplay_elements/ball/wall_hit.wav" id="4_p8bub"]
+[ext_resource type="AudioStream" uid="uid://lyji6adcx2no" path="res://gameplay_elements/ball/paddle_hit.wav" id="5_p8bub"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xm2m"]
 radius = 128.004
@@ -14,3 +17,12 @@ texture = ExtResource("2_biv8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0xm2m")
+
+[node name="BrickBreakAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p8bub")
+
+[node name="WallCollideAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p8bub")
+
+[node name="PaddleCollideAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_p8bub")
